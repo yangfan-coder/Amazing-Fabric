@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const CanvasContent = styled.div`
+  .Layout {
+    background-color: #fff;
+  }
+  .sider {
+    background-color: #fff;
+  }
+  .content {
+    background-color: #fff;
+  }
+`;
+
 export const StateButton = styled.div`
   display: flex;
   width: 500px;
@@ -9,7 +21,6 @@ export const StateButton = styled.div`
   }
 `;
 
-export const CanvasContent = styled.div`
-  width: 100%;
-  padding: 100px;
+export const CanvasMain = styled.div`
+  display: flex;
 `;

@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Button } from 'antd';
+import { Layout } from 'antd';
+import Menu from '@/components/menu';
 import { fabric } from 'fabric';
-import { StateButton, CanvasContent } from '@/styles';
+import { CanvasContent } from '@/styles';
+const { Sider, Content } = Layout;
 
 const Home = () => {
   const canvas = useRef(null);
@@ -22,7 +24,7 @@ const Home = () => {
     if (canvas.current) {
       // # http://fabricjs.com/docs/fabric.Canvas.html
       const cx = new fabric.Canvas(canvas.current, {
-        height: 400,
+        height: 800,
         width: 1000,
         backgroundColor: '#ccc',
         selectionBorderColor: 'red', // 选择区域的边框颜色
@@ -96,14 +98,36 @@ const Home = () => {
 
   return (
     <CanvasContent>
-      <canvas ref={canvas} />
-      <StateButton>
-        <Button onClick={() => setLeft(1)}>向右移动</Button>
-        <Button onClick={() => setLeft(400)}>向左移动</Button>
-        <Button onClick={() => setTop(200)}>向上移动</Button>
-        <Button onClick={() => setTop(1)}>向下移动</Button>
-      </StateButton>
+      <Layout className='layout'>
+        <Sider className='sider'>
+          <Menu />
+        </Sider>
+        <Layout>
+          <Content className='content'>
+            <canvas ref={canvas} />
+          </Content>
+        </Layout>
+      </Layout>
     </CanvasContent>
+    // <CanvasContent>
+    //   <Menu />
+    //   <CanvasMain>
+    //     <h4>改变形状：</h4>
+    //     <Select defaultValue='lucy' style={{ width: 120, height: 40 }} onChange={handleChange}>
+    //       <Option value='jack'>Jack</Option>
+    //       <Option value='lucy'>Lucy</Option>
+    //       <Option value='Yiminghe'>yiminghe</Option>
+    //     </Select>
+    //     <canvas ref={canvas} />
+    //   </CanvasMain>
+
+    //   <StateButton>
+    //     <Button onClick={() => setLeft(1)}>向右移动</Button>
+    //     <Button onClick={() => setLeft(400)}>向左移动</Button>
+    //     <Button onClick={() => setTop(200)}>向上移动</Button>
+    //     <Button onClick={() => setTop(1)}>向下移动</Button>
+    //   </StateButton>
+    // </CanvasContent>
   );
 };
 
