@@ -1,18 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
+import RouterConfig from '@/route';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import Demo from './demo';
-import About from './About';
+import 'antd/dist/antd.css';
 import './index.css';
 
-const RouterConfig = [
-  {
-    path: '/demo',
-    component: Demo,
-    childRoutes: [{ path: 'about', component: About }],
-  },
-];
+const root = document.getElementById('root');
 
-ReactDOM.render(<Router>{renderRoutes(RouterConfig)}</Router>, document.getElementById('root'));
+ReactDOM.render(<Router>{renderRoutes(RouterConfig)}</Router>, root);
